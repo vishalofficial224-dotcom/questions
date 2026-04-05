@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete an element on button click and add to</title>
+</head>
+<body>
+
+    <!-- appendChild → spawn 🧬
+remove() → delete 💀
+contains() → check existence 👁️ -->
+    <button id="remove">remove</button>
+    <button id="add">add</button>
+   <script>
+    const body = document.querySelector('body');
+    const button = document.getElementById('remove');
+    const button2 = document.getElementById('add');
+    const h1 = document.createElement('h1');
+    body.appendChild(h1)
+    h1.textContent = "h1";
+
+    function addRemove(e) {
+        if (e.target.id == 'remove') {
+            h1.remove();
+        }else if (e.target.id === "add") {
+            if (!document.body.contains(h1)) {
+                 document.body.appendChild(h1);
+        }
+
+        }
+    }
+
+    button.addEventListener("click", addRemove)
+    button2.addEventListener("click", addRemove)
+    // button.addEventListener("click", () => {
+    //     body.removeChild(h1);
+    // })
+    // button2.addEventListener("click", () => {
+    //     body.appendChild(h1);
+    // })
+    
+   </script> 
+</body>
+</html>

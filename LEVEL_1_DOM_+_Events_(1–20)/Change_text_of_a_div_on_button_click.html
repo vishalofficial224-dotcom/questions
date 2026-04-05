@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change text of a div on button click</title>
+</head>
+<body>
+    <div id="div">hello</div>
+    <button id="inp">clicked</button>
+
+    <script>
+        const inp = document.getElementById('inp');
+        const div = document.getElementById('div');
+        
+        inp.addEventListener("click", (e) => {
+            
+            div.textContent = "what happend?"
+            setTimeout(() => {
+                div.textContent = "hello"
+            }, 3000);
+        })
+        
+    </script>
+    
+</body>
+</html>

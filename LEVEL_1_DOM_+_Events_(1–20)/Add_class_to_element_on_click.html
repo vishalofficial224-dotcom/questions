@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add class to element on click</title>
+    <style>
+        .newClass {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add class to element on click</h1>
+    <h2>Add class to element on click</h2>
+    <h3>Add class to element on click</h3>
+    
+    <script>
+        // const h1 = document.querySelector('h1');
+        // const h2 = document.querySelector('h2');
+        // const h3 = document.querySelector('h3');
+
+        // function handler(e) {
+        //     e.target.classList.toggle("newclass");
+        // }
+
+        // h1.addEventListener("click", handler);
+        // h2.addEventListener("click", handler);
+        // h3.addEventListener("click", handler);
+
+        
+        const headings = document.querySelectorAll('h1, h2, h3');
+
+        function handler(e) {
+            e.target.classList.toggle("newClass");
+        }
+
+        headings.forEach(h => {
+            h.addEventListener("click", handler);
+        });
+
+
+        function a() {
+            var x = 10;
+            console.log(x);
+        }
+
+        a();
+
+
+
+    </script>
+</body>
+</html>

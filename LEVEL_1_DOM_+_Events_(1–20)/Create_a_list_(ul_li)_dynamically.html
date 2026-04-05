@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a list (ul > li) dynamically</title>
+</head>
+<body>
+
+
+    <script>
+        const body = document.querySelector('body');
+
+        for (let i=0; i < 1; i++) {
+            const ul = document.createElement('ul');
+            body.appendChild(ul);
+            for (let c = 0; c<5; c++) {
+                const li = document.createElement('li');
+                ul.appendChild(li);
+                li.textContent = c;
+            }
+        } 
+        // ul.addEventListener("click", (e) => {
+        //     // tagName always returns uppercase in the DOM.
+        //     if (e.target.tagName === "LI") {
+        //         console.log("Clicked:", e.target.textContent);
+        //     }   
+        //         console.log(e.target.tagName)
+        //     });
+        // }
+
+    </script>
+    
+</body>
+</html>

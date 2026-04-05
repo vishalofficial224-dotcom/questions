@@ -1,0 +1,1 @@
+acc[curr.firstName] = curr.age

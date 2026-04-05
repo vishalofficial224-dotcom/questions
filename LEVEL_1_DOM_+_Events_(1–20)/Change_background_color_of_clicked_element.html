@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change background color of clicked element</title>
+
+    <style>
+        .color {
+            background-color: red;
+        }
+
+        body {
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <h1>h1</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+    <h7>h7</h7>
+    
+    <script>
+        const allElements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, h7");
+        
+        function changeColor(e) {
+            e.target.classList.toggle('color');
+        }
+
+        allElements.forEach(element => {
+            element.addEventListener("click", changeColor)
+        })
+
+        //event delegation
+        // document.body.addEventListener("click", (e) => {
+    //     if (e.target.matches("h1, h2, h3, h4, h5, h6")) {
+    //         e.target.classList.toggle("color");
+    //      }
+    // });
+    </script>
+</body>
+</html>

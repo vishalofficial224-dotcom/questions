@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a counter with + / - buttons</title>
+</head>
+<body>
+    <button id="plus">+</button>
+    <p id="para"></p>
+    <button id="minus">-</button>
+    
+    <script>
+        const button1 = document.getElementById('plus');
+        const button2 = document.getElementById('minus');
+        const para = document.getElementById('para');
+        let value = 0;
+        function change(e) {
+           
+            if(e.target.id === "plus") {
+                value++;
+            }else if (e.target.id === "minus") {
+                value--;
+            }
+
+            if (value >= 10) {
+                para.style.color = "red"
+            }
+            para.textContent = value;
+            console.log(e.timeStamp)
+
+
+        }
+
+        
+
+        button1.addEventListener("click", change);
+        button2.addEventListener("click", change);
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disable button after click and Enable button after input change</title>
+</head>
+<body>
+
+    <input type="text" id="input">
+    <div id="div">change me real time</div>
+    <script>
+        const div = document.getElementById('div');
+        const input = document.getElementById('input');
+
+        input.addEventListener("input", (e) => {
+            div.textContent = e.target.value;
+        })
+    </script>
+</body>
+</html>

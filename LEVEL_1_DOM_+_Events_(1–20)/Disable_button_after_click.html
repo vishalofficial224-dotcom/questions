@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disable button after click and Enable button after input change</title>
+</head>
+<body>
+
+    <input type="text" id="input">
+    <button id="btn">click me</button>
+    <script>
+        const button = document.getElementById('btn');
+        const input = document.getElementById('input');
+
+        input.addEventListener("input", (e) => {
+            if (e.target) {
+                button.disabled = false;
+            }
+        })
+
+        button.addEventListener("click", () => {
+            button.disabled = true;
+        })
+    </script>
+</body>
+</html>

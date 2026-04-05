@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create 3 buttons and log which one was clicked</title>
+</head>
+<body>
+    <button id="first-button">button-1</button>
+    <button id="second-button">button-2</button>
+    <button id="third-button">button-3</button>
+
+    <script>
+        const first_button = document.getElementById("first-button");
+        const second_button = document.getElementById("second-button");
+        const third_button = document.getElementById("third-button");
+
+        function handler(e) {
+            console.log(e.target.id)
+        }
+
+        first_button.addEventListener("click", handler);
+        second_button.addEventListener("click", handler);
+        third_button.addEventListener("click", handler);
+
+
+        // const buttons = document.querySelectorAll("button");
+
+        // buttons.forEach(button => {
+        // button.addEventListener("click", handler);
+        // });
+        
+
+        // Instead of id, you can use custom data attributes:
+        // <button data-type="amazon">Amazon</button>
+        // <button data-type="flipkart">Flipkart</button>
+        // <button data-type="meesho">Meesho</button>
+
+        // function handler(e) {
+        //     console.log(e.target.dataset.type);
+        // }
+        
+    </script>
+    
+</body>
+</html>

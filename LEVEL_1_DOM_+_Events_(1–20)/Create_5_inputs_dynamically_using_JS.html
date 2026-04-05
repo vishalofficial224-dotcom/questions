@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create 5 inputs dynamically using JS and Attach same event listener to all inputs and Log which input triggered event (e.target)</title>
+</head>
+<body id="body">
+    <!-- You now have:
+
+Dynamic creation ✔️
+Stored references in array ✔️
+Same event listener on all elements ✔️
+Using e.target correctly ✔️
+
+This is literally the backbone of:
+
+search inputs
+form builders
+filtering systems
+dynamic UI rendering -->
+    <script>
+        const body = document.getElementById('body');
+        const inputs = []
+        for (let i = 0; i<=5; i++) {
+            const input = document.createElement("input");
+            input.dataset.index = i;
+            inputs.push(input);
+            body.appendChild(input);
+        }
+        console.log(inputs)
+        inputs.forEach(input => {
+            input.addEventListener("input", (e) => {
+                console.log(e.target.value);
+                console.log(e.target)
+                console.log("Input number:", e.target.dataset.index);
+            })
+        })
+    </script>
+    
+</body>
+</html>
