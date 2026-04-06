@@ -1,1 +1,9 @@
-acc[curr.firstName] = curr.age
+function search(data, query) {
+//     let isPresent = false
+//     data.forEach(x => {
+//         if(x === query) {
+//             isPresent = true
+//         }
+//     })
+//     return isPresent
+// }
