@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Debounce Demo</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+    .box {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      height: 150px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Debounce Visual Demo</h2>
+
+<input type="text" id="search" placeholder="Type fast..." />
+
+<div class="box" id="live"></div>
+<div class="box" id="debounced"></div>
+
+<script>
+function debounce(func, delay) {
+    let timer;
+
+    return function (...args) {
+        // Cancel previous scheduled execution
+        clearTimeout(timer);
+
+        // Log cancel action
+        logLive("❌ Previous timer cleared");
+
+        // Schedule new execution
+        timer = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+
+        logLive("⏳ New timer set (" + delay + "ms)");
+    };
+}
+
+// Function we actually want to control
+function handleSearch(value) {
+    logDebounced("✅ Executed with: " + value);
+}
+
+// Create debounced version
+const debouncedSearch = debounce(handleSearch, 1000);
+
+// Input event
+document.getElementById("search").addEventListener("input", (e) => {
+    const value = e.target.value;
+
+    logLive("⌨️ Typed: " + value);
+
+    // Call debounced function
+    debouncedSearch(value);
+});
+
+// Logging helpers
+function logLive(msg) {
+    const div = document.getElementById("live");
+    div.innerHTML += "<div>" + msg + "</div>";
+    div.scrollTop = div.scrollHeight;
+}
+
+function logDebounced(msg) {
+    const div = document.getElementById("debounced");
+    div.innerHTML += "<div>" + msg + "</div>";
+    div.scrollTop = div.scrollHeight;
+}
+</script>
+
+</body>
+</html>
