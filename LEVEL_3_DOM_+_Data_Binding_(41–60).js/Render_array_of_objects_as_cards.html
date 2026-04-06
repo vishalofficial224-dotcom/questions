@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render array of objects as cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: .25rem;
+            margin: 1rem;
+        }
+
+        .box {
+            height: 200px;
+            /* width: 300px; */
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        const data = [
+          { name: "Instagram", desc: "Social app", category: "social" },
+          { name: "YouTube", desc: "Video platform", category: "entertainment" },
+          { name: "YouTube", desc: "Video platform", category: "entertainment" },
+          { name: "YouTube", desc: "Video platform", category: "entertainment" },
+          { name: "YouTube", desc: "Video platform", category: "entertainment" },
+          { name: "YouTube", desc: "Video platform", category: "entertainment" },
+          { name: "YouTube", desc: "Video platform", category: "entertainment" },
+        ];
+        const body = document.querySelector('body');
+
+        data.forEach(data => {
+            const box = document.createElement('div');
+            box.className = 'box';
+           
+            box.innerHTML = `<h1>${data.name}</h1>
+                                <p>${data.desc}</p>
+                                <span>${data.category}</span>
+                                `;
+            body.appendChild(box)
+
+        })
+
+    </script>
+</body>
+</html>
