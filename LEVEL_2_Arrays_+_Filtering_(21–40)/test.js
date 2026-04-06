@@ -1,8 +1,31 @@
 
 
 
-const arr = [3, 5, 6, 7, 8, 2];
+function debounce(x, delay) {
+    let timer;
 
-const count = arr.filter(num => num%2 === 0).length;
+    return function (...args) {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            x.apply(this, args)
+        }, delay)
+    }
+}
 
-console.log(count)
+
+function test(x, delay) {
+
+    return function(a) {
+        setTimeout(() => {
+           x(a) 
+        }, delay);
+    }
+}
+
+
+
+const newF = test((x)=> {
+    console.log(x)
+}, 5000)
+
+newF(8)

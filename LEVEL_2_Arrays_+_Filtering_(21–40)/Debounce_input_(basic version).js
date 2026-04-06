@@ -1,15 +1,23 @@
 function debounce(func, delay) {
+    //so basically this debounce returning a function.
+    //so this func, delay it takes and it sends the func inside timer and delay in how much to wait before.
+    //executing it.
+    //then return a function which takes a value.
+    //const newDebounce = debounce(add(x + y), 5000), now this function gives back this.
+    //const newDebounce(x, y); so now newDebounce is this newDebounce(x, y);
     let timer;
 
     return function (...args) {
         clearTimeout(timer);
 
         timer = setTimeout(() => {
+            // Because setTimeout runs later, and without this line, the original function may forget who called it.
+            //this is usually the object that is calling the function.
+            //“Who is calling this function right now?”
             func.apply(this, args);
         }, delay);
     };
 }
-
 
 
 // # 📘 Debounce in JavaScript — Complete Notes
