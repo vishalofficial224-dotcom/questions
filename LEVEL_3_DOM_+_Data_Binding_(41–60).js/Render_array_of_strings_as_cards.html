@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render array of strings as cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: .25rem;
+            margin: 1rem;
+        }
+
+        .box {
+            height: 200px;
+            /* width: 300px; */
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        const name = ['apple', 'ball', 'cat', 'mango', 'animal', "pingo", "dingo", "neown", "baoe", "sura", "taripa", "ongo", "alo"]
+        const body = document.querySelector('body');
+
+        name.forEach(name => {
+            const box = document.createElement('div');
+            box.className = 'box';
+            box.textContent = name;
+            body.appendChild(box)
+
+        })
+
+    </script>
+</body>
+</html>
