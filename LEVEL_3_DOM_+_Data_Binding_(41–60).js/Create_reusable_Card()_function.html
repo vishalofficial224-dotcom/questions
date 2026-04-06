@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Render array of objects as cards</title>
+    <title>Create reusable Card() function</title>
     <style>
         * {
             margin: 0;
@@ -33,19 +33,15 @@
 
     <script>
         const body = document.querySelector('body');
+        const bigCard = card("box", "card1")
+        body.appendChild(bigCard)
+        
 
-        body.appendChild(card("box", "card1 "))
-        body.appendChild(card("box", "card2"))
-        body.appendChild(card("box", "card3"))
-        body.appendChild(card("box", "card4"))
-        body.appendChild(card("box", "card5"))
-        body.appendChild(card("box", "card6"))
-        body.appendChild(card("box", "card7"))
-        body.appendChild(card("box", "card8"))
-        body.appendChild(card("box", "card9"))
-
-        function card(cssClass, name) {
+        function card(cssClass, name, category) {
             const card = document.createElement('div');
+
+            // data attribute (IMPORTANT for filtering later)
+            card.setAttribute("data-category", category);
             card.className = cssClass;
             card.textContent = name;
             return card;
