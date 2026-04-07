@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render filtered results</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            margin: 20px;
+            gap: 20px;
+            
+        }
+
+        .box {
+            border: 2px solid black;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="search">
+    <div class="container" id="container"></div>
+
+    <script>
+        const data = ["mango", "apple", "penuts", "cake", "kitten", "parents"];
+
+        const container = document.getElementById('container');
+        const input = document.getElementById('search');
+        
+        function card(content) {
+            const card = document.createElement('div');
+            card.className = 'box'
+            card.innerHTML = content;
+            return card;
+        }
+        
+        function render(info) {
+            container.innerHTML = ''
+            info.forEach(element => {
+                const cardElement   = card(element);
+                // h1.innerHTML = element;
+                container.appendChild(cardElement);
+            });
+        }
+        render(data)
+        
+
+        input.addEventListener("input", (e) => {
+            const value = e.target.value;
+            const filter = data.filter(x => x.includes(value));
+            render(filter)
+        })
+        
+    </script>
+    
+</body>
+</html>

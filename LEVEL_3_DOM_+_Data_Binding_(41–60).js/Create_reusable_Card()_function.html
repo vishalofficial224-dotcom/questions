@@ -48,6 +48,21 @@
 
         }
 
+        const a = () => {
+            console.log("i am an annonymous!")
+        }
+
+        function x() {
+            let count = 0;
+            bigCard.addEventListener("click", function xyz() {
+                console.log("big card has been clicked!")
+                console.log(count);
+                count++;
+            })
+
+        }
+
+        x();
     </script>
 </body>
 </html>

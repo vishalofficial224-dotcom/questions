@@ -1,31 +1,18 @@
 
 
-
-function debounce(x, delay) {
-    let timer;
-
-    return function (...args) {
-        clearTimeout(timer)
-        timer = setTimeout(() => {
-            x.apply(this, args)
-        }, delay)
-    }
-}
-
-
-function test(x, delay) {
-
-    return function(a) {
-        setTimeout(() => {
-           x(a) 
-        }, delay);
-    }
+function x(para) {
+    let value = para();
+    console.log(value);
 }
 
 
 
-const newF = test((x)=> {
-    console.log(x)
-}, 5000)
+function y() {
+    return "x can access my values!"
+}
 
-newF(8)
+
+x(y);
+
+
+
