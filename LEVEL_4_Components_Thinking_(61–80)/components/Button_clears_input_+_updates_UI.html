@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script type="module">
+        import { takeInput } from "./input.js";
+
+        import { myButton } from "./button.js";
+
+        import { myCard } from "./card.js"
+
+        const app = document.createElement("div");
+        const cardList = ["apple", "mango", "dengu"];
+        const body = document.querySelector("body");
+        const input = takeInput({placeholder:"input"});
+        const button = myButton({onClick:onClick});
+        const card = myCard();
+
+        function onClick() {
+            const value = input.value;
+            const count = cardList.indexOf(value)
+            if(count !== -1) {
+                cardList.splice(count, 1)
+            }
+            list(cardList)
+        }
+
+        body.appendChild(input)
+        body.appendChild(button);
+        body.appendChild(app)
+
+        function list(info) {
+            app.innerHTML = '';
+            info.forEach(element => {
+            const card = myCard({cardText:element});
+            app.appendChild(card)
+        })
+    }
+
+        list(cardList);
+        
+
+       
+
+       
+        
+   
+        
+        
+        
+    </script>
+</body>
+</html>

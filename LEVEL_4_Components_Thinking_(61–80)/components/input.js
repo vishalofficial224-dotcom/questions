@@ -6,6 +6,7 @@ export function takeInput({
     type = '',
     placeholder = '',
     value = '',
+    onInput = null
 } = {}) {
     const input = document.createElement('input');
     
@@ -14,6 +15,17 @@ export function takeInput({
     input.type = type;
     input.placeholder = placeholder;
     input.value = value;
+
+    // ✔ connect UI → logic
+    // ✔ build search bars
+    // ✔ validate forms
+    // ✔ trigger APIs
+    // ✔ update UI dynamically
+
+
+    if(onInput) {
+        input.addEventListener("click", onInput);
+    }
     
     return input;
 }
