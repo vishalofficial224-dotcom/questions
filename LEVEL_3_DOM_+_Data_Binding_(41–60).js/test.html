@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>testing</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 10px;
+            
+        }
+
+        .box {
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
 </head>
 <body>
-
+    <input type="text" id="input">
+    <div id="main" class="container"></div>
     <script>
-      
-      const m = 'mango';
-    let e = ''
-      for(let char of m) {
-        e += char
-        console.log(char)
-        
-      }
 
-      console.log(e)
-
+       
+         
       
+
 
     
     </script>
