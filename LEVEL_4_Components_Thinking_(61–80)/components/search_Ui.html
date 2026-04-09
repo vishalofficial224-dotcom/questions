@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search ui</title>
+</head>
+<body>
+    
+
+    <script type="module">
+        import { search } from "./searchComponent.js";
+        import { myCard } from "./card.js"
+
+
+        const elements = ["apple", "banana", "carrot"];
+        const body = document.querySelector("body");
+        const div = document.createElement("div");
+        const searchBox = search({items:elements, onUpdate:render});
+        
+
+        function render(info) {
+            div.innerHTML = "";
+            info.forEach(element => {
+                const card = myCard({cardText:element});
+                div.appendChild(card);
+            }) 
+
+        }
+
+        render(elements);
+
+        body.appendChild(searchBox);
+        body.appendChild(div);
+    </script>
+</body>
+</html>
