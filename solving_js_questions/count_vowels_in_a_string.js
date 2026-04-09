@@ -1,6 +1,6 @@
 
 
-const check = "mango";
+const check = "variables";
 
 const vowels = "aeiou";
 
